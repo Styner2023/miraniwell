@@ -1,0 +1,495 @@
+<!-- Developed by StynerDev (Kishana Stiner) — miraniwell.com -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Mirani Well game, elemental healing path, wellness rituals, daily streak, healthcare worker wellness">
+	<meta name="description" content="Your Mirani Well elemental healing path. Complete daily rituals, build your streak, and unlock deeper practices across Earth, Water, Fire, and Air.">
+	<meta property="og:site_name" content="Mirani Well">
+	<meta property="og:url" content="https://miraniwell.com/journey/play/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Your Path — Mirani Well">
+	<meta name='og:image' content='../../images/assets/ogg.png'>
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#C4CCD5">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#C4CCD5">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#C4CCD5">
+	<title>Your Path — Mirani Well</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="../../images/fav-icon/icon.png">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" media="all">
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="all">
+	<!-- responsive style sheet -->
+	<link rel="stylesheet" type="text/css" href="../../css/responsive.css" media="all">
+	<!-- Game styles -->
+	<link rel="stylesheet" type="text/css" href="../../css/mirani-well-game.css" media="all">
+
+	<!-- Fix Internet Explorer ______________________________________-->
+	<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="../../vendor/html5shiv.js"></script>
+			<script src="../../vendor/respond.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<main class="main-page-wrapper">
+		<!-- ===================================================
+			Page Loader
+		==================================================== -->
+		<div id="preloader">
+			<div id="ctn-preloader" class="ctn-preloader">
+				<div class="icon"><img src="../../images/loader.svg" alt="" class="m-auto d-block"> <span></span></div>
+				<div class="txt-loading">
+					<span data-text-preloader="M" class="letters-loading">
+						M
+					</span>
+					<span data-text-preloader="I" class="letters-loading">
+						I
+					</span>
+					<span data-text-preloader="R" class="letters-loading">
+						R
+					</span>
+					<span data-text-preloader="A" class="letters-loading">
+						A
+					</span>
+					<span data-text-preloader="N" class="letters-loading">
+						N
+					</span>
+					<span data-text-preloader="I" class="letters-loading">
+						I
+					</span>
+				</div>
+			</div>
+		</div>
+
+
+		<!--
+		=============================================
+			Main Navigation
+		==============================================
+		-->
+		<header class="theme-main-menu menu-style-three gap-three menu-overlay sticky-menu">
+			<div class="inner-content container full">
+				<div class="top-header position-relative">
+					<div class="d-flex align-items-center justify-content-between">
+						<div class="logo position-relative z-2 order-lg-0">
+							<a href="../../" class="d-flex align-items-center">
+								<img src="../../images/logo/logo_01.svg" alt="">
+							</a>
+						</div>
+						<!-- logo -->
+						<div class="right-widget position-relative z-2 ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
+							<ul class="d-flex align-items-center style-none">
+								<li class="d-none d-sm-flex align-items-center">
+									<a href="#" id="logout-btn" class="btn-two">Sign Out</a>
+								</li>
+							</ul>
+						</div>
+						<nav class="navbar navbar-expand-lg p0 order-lg-2">
+							<button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
+								data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+								aria-label="Toggle navigation">
+								<span></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarNav">
+								<ul class="navbar-nav align-items-lg-center">
+									<li class="d-block d-lg-none"><div class="logo"><a href="../../" class="d-block"><img src="../../images/logo/logo_01.svg" alt=""></a></div></li>
+									<li class="nav-item">
+										<a class="nav-link" href="../../">Home</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../../journey/">Journey</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../../journey/play/">Your Path</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div> <!--/.top-header-->
+			</div> <!-- /.inner-content -->
+		</header>
+		<!-- /.theme-main-menu -->
+
+
+
+		<!--
+		=====================================================
+			Player Stats Bar
+		=====================================================
+		-->
+		<div class="feature-block-two position-relative z-2 mt-150 md-mt-120 pb-30">
+			<div class="container lg">
+				<div class="position-relative">
+					<div class="row">
+						<div class="col-lg-8 m-auto">
+							<div class="title-two text-center mb-30">
+								<h2>Welcome, <span id="player-name" class="position-relative">Healer<span class="sticker" style="background: #4EEFBF;"></span></span></h2>
+								<p class="fs-24" id="player-affirmation">You are restoring, one breath at a time.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-wrapper m0 style-two">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20" style="background: #FFE5BB;">
+									<h3 id="stat-streak">0</h3>
+									<p>Day Streak</p>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20" style="background: #CFFFD7;">
+									<h3 id="stat-xp">0</h3>
+									<p>Total XP</p>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20" style="background: #D3E4FF;">
+									<h3 id="stat-completed">0</h3>
+									<p>Rituals Done</p>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20" style="background: #FFBCF1;">
+									<h3 id="stat-level">1</h3>
+									<p>Level</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--
+		=====================================================
+			Elemental Path — Earth
+		=====================================================
+		-->
+		<div class="feature-block-two position-relative z-2 pt-50 pb-30">
+			<div class="container lg">
+				<div class="position-relative">
+					<div class="row">
+						<div class="col-lg-8 m-auto">
+							<div class="title-two text-center mb-30">
+								<h2><span class="position-relative">Earth<span class="sticker" style="background: #FFE5BB;">Path</span></span></h2>
+								<p class="fs-20">Grounding, stability, purpose</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-wrapper m0 style-two">
+						<div class="row" id="earth-path">
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="earth" data-node="0" data-ritual="Grounding Breath" data-xp="10" style="background: #FFE5BB;">
+									<h3>Grounding Breath</h3>
+									<p>Close your eyes. Feel your feet on the earth. Breathe in for 4, hold for 4, out for 6. Repeat 3 times.</p>
+									<span class="fw-500 mt-20 node-status">Begin</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="earth" data-node="1" data-ritual="Root Visualization" data-xp="15" style="background: #FFE5BB;">
+									<h3>Root Visualization</h3>
+									<p>Imagine roots growing from your body into the ground below. Feel yourself held. You are supported.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="earth" data-node="2" data-ritual="Soil Ritual" data-xp="20" style="background: #FFE5BB;">
+									<h3>Soil Ritual</h3>
+									<p>Place your hands on something natural. A plant, wood, stone. Name three things you are grateful the earth gives you.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="earth" data-node="3" data-ritual="Forest Sanctuary" data-xp="30" style="background: #FFE5BB;">
+									<h3>Forest Sanctuary</h3>
+									<p>Visualize a quiet forest clearing. You are safe here. Spend two minutes in stillness. Let the ground hold your weight.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--
+		=====================================================
+			Elemental Path — Water
+		=====================================================
+		-->
+		<div class="feature-block-two position-relative z-2 pt-50 pb-30">
+			<div class="container lg">
+				<div class="position-relative">
+					<div class="row">
+						<div class="col-lg-8 m-auto">
+							<div class="title-two text-center mb-30">
+								<h2><span class="position-relative">Water<span class="sticker" style="background: #D3E4FF;">Path</span></span></h2>
+								<p class="fs-20">Flow, release, emotional processing</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-wrapper m0 style-two">
+						<div class="row" id="water-path">
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="water" data-node="0" data-ritual="Wave Release" data-xp="10" style="background: #D3E4FF;">
+									<h3>Wave Release</h3>
+									<p>Breathe in slowly. On the exhale, imagine a wave carrying away what you no longer need. Let it flow through you.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="water" data-node="1" data-ritual="River Meditation" data-xp="15" style="background: #D3E4FF;">
+									<h3>River Meditation</h3>
+									<p>Picture yourself beside a gentle river. Each thought that arises, place it on a leaf and let the current take it.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="water" data-node="2" data-ritual="Ocean Immersion" data-xp="20" style="background: #D3E4FF;">
+									<h3>Ocean Immersion</h3>
+									<p>Close your eyes and hear the ocean. You are vast like the sea. Your feelings are waves — they rise, they pass, they return to calm.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="water" data-node="3" data-ritual="Tidal Affirmation" data-xp="30" style="background: #D3E4FF;">
+									<h3>Tidal Affirmation</h3>
+									<p>Repeat softly: "I release what is not mine to carry. I am fluid. I am allowed to let go."</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--
+		=====================================================
+			Elemental Path — Fire
+		=====================================================
+		-->
+		<div class="feature-block-two position-relative z-2 pt-50 pb-30">
+			<div class="container lg">
+				<div class="position-relative">
+					<div class="row">
+						<div class="col-lg-8 m-auto">
+							<div class="title-two text-center mb-30">
+								<h2><span class="position-relative">Fire<span class="sticker" style="background: #FFBCF1;">Path</span></span></h2>
+								<p class="fs-20">Passion, renewal, inner spark</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-wrapper m0 style-two">
+						<div class="row" id="fire-path">
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="fire" data-node="0" data-ritual="Spark Activation" data-xp="10" style="background: #FFBCF1;">
+									<h3>Spark Activation</h3>
+									<p>Place a hand on your chest. Feel the warmth. Say quietly: "My spark is sacred. I let it glow again."</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="fire" data-node="1" data-ritual="Ember Journaling" data-xp="15" style="background: #FFBCF1;">
+									<h3>Ember Journaling</h3>
+									<p>Write down one thing that sparked joy today. No matter how small. A smile, a color, a sound. Fan the ember.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="fire" data-node="2" data-ritual="Flame Ceremony" data-xp="20" style="background: #FFBCF1;">
+									<h3>Flame Ceremony</h3>
+									<p>Light a candle or imagine a flame. Watch it flicker. Breathe with it. Let the light remind you of your own resilience.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="fire" data-node="3" data-ritual="Renewal Ritual" data-xp="30" style="background: #FFBCF1;">
+									<h3>Renewal Ritual</h3>
+									<p>Think of something you are ready to release. Imagine placing it in a fire. Watch it transform. You are renewed.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--
+		=====================================================
+			Elemental Path — Air
+		=====================================================
+		-->
+		<div class="feature-block-two position-relative z-2 pt-50 pb-50">
+			<div class="container lg">
+				<div class="position-relative">
+					<div class="row">
+						<div class="col-lg-8 m-auto">
+							<div class="title-two text-center mb-30">
+								<h2><span class="position-relative">Air<span class="sticker" style="background: #CFFFD7;">Path</span></span></h2>
+								<p class="fs-20">Lightness, clarity, rising above</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-wrapper m0 style-two">
+						<div class="row" id="air-path">
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="air" data-node="0" data-ritual="Breath of Sky" data-xp="10" style="background: #CFFFD7;">
+									<h3>Breath of Sky</h3>
+									<p>Step outside or look through a window. Breathe in the open sky. You are light enough to rise again.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="air" data-node="1" data-ritual="Cloud Gazing" data-xp="15" style="background: #CFFFD7;">
+									<h3>Cloud Gazing</h3>
+									<p>Find a cloud. Watch it drift. Your thoughts can move like that too — passing, shifting, never permanent.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="air" data-node="2" data-ritual="Wind Affirmation" data-xp="20" style="background: #CFFFD7;">
+									<h3>Wind Affirmation</h3>
+									<p>Whisper to the air: "I release heaviness. I choose clarity. I am rising." Feel the words leave you.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-20 game-node" data-element="air" data-node="3" data-ritual="Ascension Journey" data-xp="30" style="background: #CFFFD7;">
+									<h3>Ascension Journey</h3>
+									<p>Close your eyes. Imagine yourself lifting gently above it all. You see everything below with compassion. You are free.</p>
+									<span class="fw-500 mt-20 node-status">Locked</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--
+		=====================================================
+			Footer
+		=====================================================
+		-->
+		<footer class="footer-three position-relative">
+			<div class="container lg">
+				<div class="layer-one position-relative">
+					<div class="layer-two position-relative z-1">
+						<div class="main-bg position-relative z-2">
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="logo"><a href="../../"><img src="../../images/logo/logo_01.svg" alt=""></a></div>
+									<h3>Your wellness journey, one step at a time.</h3>
+									<ul class="style-none d-flex footer-nav">
+										<li><a href="#" class="line-bg">Faq's</a></li>
+										<li><a href="#" class="line-bg">Privacy Policy</a></li>
+										<li><a href="#" class="line-bg">Terms</a></li>
+									</ul>
+								</div>
+								<div class="col-xl-6">
+									<div class="ps-xxl-4">
+										<ul class="style-none d-flex footer-nav xl">
+											<li><a href="../../about/" class="line-bg">About </a></li>
+											<li><a href="../../features/" class="line-bg">Features</a></li>
+											<li><a href="../../journey/" class="line-bg">Journey</a></li>
+											<li><a href="../../blog/" class="line-bg">Blog</a></li>
+											<li><a href="../../contact/" class="line-bg">Contact</a></li>
+										</ul>
+										<div class="d-sm-flex justify-content-between mt-70 lg-mt-40">
+											<p class="address">Founded by <br>Dr. Uzo Nwankpa</p>
+											<ul class="style-none social-icon d-flex">
+												<li><a href="#">Tw</a></li>
+												<li><a href="#">Fb</a></li>
+												<li><a href="#">Ln</a></li>
+											</ul>
+										</div>
+
+										<div class="newsletter-form mt-60 lg-mt-30">
+											<p>Join our newsletter</p>
+											<form action="#" class="position-relative">
+												<input type="email" placeholder="your@email.com">
+												<button class="rounded-circle tran3s d-flex align-items-center justify-content-center"><img src="../../images/icon/icon_16.svg" alt=""></button>
+											</form>
+										</div>
+										<!-- /.newsletter-form -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.main-bg -->
+					</div>
+					<!-- /.layer-two -->
+				</div>
+				<!-- /.layer-one -->
+
+				<p class="copyright"><span class="fw-500">@2026 Mirani Well.</span> All Right Reserved</p>
+			</div>
+			<img src="../../images/shape/shape_16.svg" alt="Shape" class="shapes shape_01 w-100">
+		</footer>
+		<!-- /.footer-three -->
+
+
+		<button class="scroll-top">
+			<i class="bi bi-arrow-up-short"></i>
+		</button>
+
+
+		<!-- Optional JavaScript _____________________________  -->
+
+		<!-- jQuery first, then Bootstrap JS -->
+		<!-- jQuery -->
+		<script src="../../vendor/jquery.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- SAL js -->
+		<script src="../../vendor/sal/sal.js"></script>
+		<!-- Slick Slider -->
+		<script src="../../vendor/slick/slick.min.js"></script>
+		<script src="../../vendor/slick-animation.min.js"></script>
+		<!-- Fancybox -->
+		<script src="../../vendor/fancybox/fancybox.umd.js"></script>
+		<!-- js Counter -->
+		<script src="../../vendor/jquery.counterup.min.js"></script>
+		<script src="../../vendor/jquery.waypoints.min.js"></script>
+		<!-- validator js -->
+		<script src="../../vendor/validator.js"></script>
+
+		<!-- Theme js -->
+		<script src="../../js/theme.js"></script>
+		<!-- Mirani Well Game JS -->
+		<script src="../../js/mirani-well-game.js?v=3"></script>
+
+	</main> <!-- /.main-page-wrapper -->
+</body>
+
+</html>

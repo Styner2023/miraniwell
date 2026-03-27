@@ -1,0 +1,702 @@
+/**
+ * Mirani Well Game — Minimal styles for game interactions
+ * Does NOT override any template styles.
+ */
+
+
+/* ══════════════════════════════════════
+   RITUAL PAGE LAYOUT — sidebar + main
+   ══════════════════════════════════════ */
+.ritual-sidebar {
+  position: fixed;
+  left: 32px;
+  top: 30%;
+  transform: translateY(-50%);
+  width: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 8px;
+  gap: 14px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.ritual-sidebar-exit {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  background: #1a1a1a;
+  transition: all 0.2s ease;
+}
+.ritual-sidebar-exit:hover {
+  background: #333;
+  color: #fff;
+}
+.ritual-sidebar-progress {
+  position: relative;
+  width: 6px;
+  height: 120px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.ritual-sidebar-progress .progress-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  border-radius: 10px;
+  transition: height 0.6s ease;
+}
+.ritual-sidebar-hearts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.ritual-sidebar-hearts .heart-icon {
+  font-size: 12px;
+}
+.ritual-sidebar-xp {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.ritual-main {
+  margin-left: 72px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.ritual-map-area {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 10px 15px 5px;
+}
+.ritual-map-area .snake-path-container img {
+  max-height: 100%;
+  object-fit: contain;
+}
+/* Step wrapper — fixed height so map never changes */
+.ritual-step-wrapper {
+  flex: 0 0 410px;
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+/* Buttons — top-left corner of the box */
+.ritual-controls {
+  position: absolute;
+  top: -15px;
+  left: 120px;
+  z-index: 10;
+}
+
+/* Feedback pill — top-right corner of the box */
+.ritual-feedback-pill {
+  position: absolute;
+  top: -15px;
+  right: 120px;
+  z-index: 10;
+  max-width: 300px;
+}
+.ritual-feedback-inner {
+  background: #CFFFD7;
+  border: 2px solid #000;
+  border-radius: 30px;
+  padding: 12px 24px;
+  text-align: center;
+}
+.ritual-feedback-pill.d-none {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .ritual-sidebar {
+    left: 8px;
+    width: 40px;
+    padding: 10px 6px;
+    gap: 10px;
+  }
+  .ritual-sidebar-progress {
+    height: 80px;
+  }
+  .ritual-main {
+    margin-left: 56px;
+  }
+}
+
+/* ── Node states (play page cards) ── */
+.game-node {
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.game-node:hover {
+  transform: translateY(-4px);
+}
+.game-node.node-locked {
+  opacity: 0.45;
+  cursor: default;
+}
+.game-node.node-locked:hover {
+  transform: none;
+}
+.game-node.node-completed {
+  opacity: 0.85;
+}
+
+/* Medal on completed play-page cards */
+.card-medal {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  animation: medalPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+}
+@keyframes medalPop {
+  0%   { transform: scale(0) rotate(-45deg); }
+  70%  { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+.game-node.node-completed .node-status {
+  text-decoration: line-through;
+}
+.game-node.node-available .node-status {
+  text-decoration: underline;
+}
+
+
+/* ── Ritual progress bar ── */
+.progress-bar-wrapper {
+  width: 100%;
+  height: 12px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.progress-bar-wrapper .progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #4EEFBF;
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+
+/* ── Breathing circle animation ── */
+.breathing-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px auto;
+  animation: breathePulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes breathePulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  25%  { transform: scale(1.3); opacity: 1; }
+  50%  { transform: scale(1.3); opacity: 1; }
+  75%  { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1);   opacity: 0.6; }
+}
+
+
+/* ══════════════════════════════════════════════════
+   RITUAL PAGE — Snaking Maze Path + Gamified Experience
+   ══════════════════════════════════════════════════ */
+
+/* ── Hearts row ── */
+#ritual-hearts {
+  gap: 6px;
+}
+.heart-icon {
+  font-size: 24px;
+  color: #FF4B4B;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  display: inline-block;
+}
+.heart-icon.heart-lost {
+  opacity: 0.15;
+  transform: scale(0.8);
+}
+@keyframes heartBreak {
+  0%   { transform: scale(1); color: #FF4B4B; }
+  30%  { transform: scale(1.4); color: #FF0000; }
+  100% { transform: scale(0.8); opacity: 0.15; }
+}
+.heart-icon.heart-breaking {
+  animation: heartBreak 0.6s ease forwards;
+}
+
+
+/* ══════════════════════════════════════
+   SNAKE PATH — flowing S-curve like a
+   serpent winding through your journey
+   ══════════════════════════════════════ */
+
+.snake-path-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+/* The SVG snake body behind the nodes */
+.snake-path-container svg.snake-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.snake-trail-bg {
+  fill: none;
+  stroke: #e8e8e8;
+  stroke-width: 18;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.snake-trail-done {
+  fill: none;
+  stroke: #4EEFBF;
+  stroke-width: 18;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+/* Node wrapper — absolutely positioned on the curve */
+.snake-node-wrap {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+}
+
+/* Individual path node */
+.path-node {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: default;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+  border: 4px solid transparent;
+}
+
+/* Node states */
+.path-node.node-done {
+  background: #4EEFBF;
+  color: #fff;
+  border-color: #3AD4A5;
+}
+.path-node.node-active {
+  border-color: #4EEFBF;
+  box-shadow: 0 0 0 6px rgba(78, 239, 191, 0.25);
+  animation: activePulse 2s ease-in-out infinite;
+  cursor: pointer;
+}
+.path-node.node-locked {
+  background: #e5e7eb;
+  color: #b0b0b0;
+  border-color: #d0d0d0;
+  opacity: 0.5;
+}
+
+@keyframes activePulse {
+  0%   { box-shadow: 0 0 0 6px rgba(78, 239, 191, 0.25); }
+  50%  { box-shadow: 0 0 0 14px rgba(78, 239, 191, 0.08); }
+  100% { box-shadow: 0 0 0 6px rgba(78, 239, 191, 0.25); }
+}
+
+/* Bouncing tooltip on active node */
+.path-node-tooltip {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4EEFBF;
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  animation: tooltipBounce 1s ease-in-out infinite;
+  z-index: 10;
+}
+.path-node-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #4EEFBF;
+}
+@keyframes tooltipBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Node label (below node) */
+.path-node-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #999;
+  text-align: center;
+  max-width: 70px;
+  margin-top: 2px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.maze-node-wrapper.is-done .path-node-label { color: #3AD4A5; }
+.maze-node-wrapper.is-active .path-node-label { color: #1a1a1a; font-weight: 600; }
+
+
+/* ── Medal images in path nodes ── */
+.path-node-medal {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  pointer-events: none;
+}
+.path-node.node-locked .path-node-medal {
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+
+/* ── Completion medal ── */
+.complete-medal {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  animation: medalDrop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes medalDrop {
+  0%   { transform: translateY(-60px) scale(0.3) rotate(-30deg); opacity: 0; }
+  60%  { transform: translateY(10px) scale(1.1) rotate(5deg); opacity: 1; }
+  80%  { transform: translateY(-5px) scale(0.95) rotate(-2deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+
+/* ── Ritual content box — FIXED height, never changes ── */
+.ritual-step-area .main-bg {
+  height: 360px !important;
+  min-height: 360px !important;
+  max-height: 360px !important;
+  padding: 20px 10px 15px !important;
+  overflow: visible !important;
+}
+
+.ritual-step-area .layer-one,
+.ritual-step-area .layer-two {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+.ritual-step-area .layer-one::before,
+.ritual-step-area .layer-two::before {
+  top: 5px !important;
+}
+.ritual-step-area .ritual-scene-img {
+  display: none !important;
+}
+.ritual-step-area .mb-20,
+.ritual-step-area .mb-30 {
+  margin-bottom: 10px !important;
+}
+.ritual-step-area .mt-30 {
+  margin-top: 10px !important;
+}
+
+/* ── Smooth transitions for all interactive elements on ritual page ── */
+#guided-screen,
+#quiz-screen,
+#complete-screen,
+#failed-screen {
+  transition: opacity 0.4s ease;
+}
+#guided-done-btn,
+#quiz-check-btn,
+#quiz-continue-btn,
+#complete-return-btn,
+#failed-return-btn,
+#failed-retry-btn {
+  transition: all 0.3s ease;
+}
+
+/* ── Scene illustration ── */
+.ritual-scene-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  animation: sceneFloat 4s ease-in-out infinite;
+}
+@keyframes sceneFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+
+/* ══════════════════════════════════════
+   SERPENTINE PATH — clean bezier curves
+   ══════════════════════════════════════ */
+.snake-path-container {
+  height: 100%;
+  overflow: visible;
+}
+.snake-path-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Gaming-paths winding route illustration */
+.path-bg-illustration {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  position: relative;
+  z-index: 0;
+}
+.snake-trail-bg {
+  stroke-width: 6;
+}
+.snake-trail-done {
+  stroke-width: 6;
+}
+.path-node {
+  width: 62px;
+  height: 62px;
+  font-size: 22px;
+  border-width: 5px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.path-node.node-done {
+  box-shadow: 0 3px 12px rgba(78, 239, 191, 0.3);
+}
+.path-node.node-active {
+  box-shadow: 0 0 0 7px rgba(78, 239, 191, 0.25), 0 4px 16px rgba(0,0,0,0.1);
+}
+.path-node-medal {
+  width: 44px;
+  height: 44px;
+}
+.path-node-tooltip {
+  font-size: 13px;
+  padding: 4px 12px;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .result-bubble {
+    width: 72px;
+    height: 72px;
+  }
+  .result-bubble h3 { font-size: 18px; }
+  .result-bubble p { font-size: 9px; }
+}
+
+/* Step content area */
+.step-content-area {
+  min-height: 300px;
+}
+
+/* Step entrance animation — smooth gentle fade */
+@keyframes stepFadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+.step-animate-in {
+  animation: stepFadeIn 0.5s ease forwards;
+}
+
+
+/* ── Quiz options ── */
+.quiz-options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+@media (max-width: 767px) {
+  .quiz-options-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 575px) {
+  .quiz-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quiz-option {
+  padding: 14px 12px;
+  border: 3px solid #e0e0e0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  user-select: none;
+  background: #fff;
+}
+.quiz-option:hover {
+  border-color: #b0b0b0;
+}
+.quiz-option.selected {
+  border-color: #4EEFBF;
+  background: rgba(78, 239, 191, 0.08);
+}
+.quiz-option.correct {
+  border-color: #4EEFBF;
+  background: rgba(78, 239, 191, 0.2);
+  animation: correctPop 0.4s ease;
+}
+.quiz-option.wrong {
+  border-color: #FF4B4B;
+  background: rgba(255, 75, 75, 0.12);
+  animation: wrongShake 0.5s ease;
+}
+.quiz-option.disabled {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+@keyframes correctPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+@keyframes wrongShake {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-5px); }
+  50%  { transform: translateX(5px); }
+  75%  { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+
+/* ── Guided step special elements ── */
+
+/* Affirmation glow card */
+.affirmation-card {
+  border-radius: 20px;
+  padding: 16px;
+  text-align: center;
+  animation: affirmationGlow 3s ease-in-out infinite;
+}
+@keyframes affirmationGlow {
+  0%   { box-shadow: 0 0 20px rgba(78, 239, 191, 0.15); }
+  50%  { box-shadow: 0 0 40px rgba(78, 239, 191, 0.35); }
+  100% { box-shadow: 0 0 20px rgba(78, 239, 191, 0.15); }
+}
+
+/* Reflect prompt */
+.reflect-prompt {
+  border-radius: 16px;
+  padding: 14px;
+  min-height: auto;
+  text-align: center;
+}
+
+
+/* ── Completion celebration ── */
+@keyframes celebratePop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  60%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+#complete-screen .card-block,
+#failed-screen .card-block {
+  animation: celebratePop 0.5s ease;
+}
+
+/* Compact the completion screen so everything fits in the box */
+#complete-screen .card-block {
+  padding: 8px 8px !important;
+}
+#complete-screen .card-block h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+#complete-screen .card-block p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+#complete-screen h2 {
+  font-size: 50px !important;
+  margin-bottom: 5px !important;
+}
+
+/* XP earned counter animation */
+@keyframes xpCount {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.3); color: #4EEFBF; }
+  100% { transform: scale(1); }
+}
+#complete-xp-earned {
+  animation: xpCount 0.8s ease 0.3s;
+}
+
+
+/* ── Mobile adjustments ── */
+@media (max-width: 767px) {
+  .path-node {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+  .path-node-medal {
+    width: 30px;
+    height: 30px;
+  }
+  .path-node-label {
+    font-size: 9px;
+  }
+  .path-node-tooltip {
+    font-size: 10px;
+    padding: 2px 7px;
+    top: -28px;
+  }
+  .maze-connector {
+    max-width: 30px;
+    min-width: 10px;
+  }
+}

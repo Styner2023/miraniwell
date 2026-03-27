@@ -1,0 +1,570 @@
+<!-- Developed by StynerDev (Kishana Stiner) — miraniwell.com -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="elemental healing journey, skill tree, progress tracking, daily rituals, wellness streak, Mirani Well, elemental wellness">
+	<meta name="description" content="Your Mirani Well Journey — Track your daily healing rituals across four elemental paths. Build streaks, unlock deeper practices, and watch your wellness grow.">
+    <meta property="og:site_name" content="Mirani Well">
+    <meta property="og:url" content="https://miraniwell.com/journey/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Your Journey — Mirani Well">
+	<meta name='og:image' content='../images/assets/ogg.png'>
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#C4CCD5">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#C4CCD5">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#C4CCD5">
+	<title>Your Journey — Mirani Well</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="../images/fav-icon/icon.png">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" media="all">
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css" media="all">
+	<!-- responsive style sheet -->
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css" media="all">
+
+	<!-- Fix Internet Explorer ______________________________________-->
+	<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="../vendor/html5shiv.js"></script>
+			<script src="../vendor/respond.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<main class="main-page-wrapper">
+		<!-- ===================================================
+			Page Loader
+		==================================================== -->
+		<div id="preloader">
+			<div id="ctn-preloader" class="ctn-preloader">
+				<div class="icon"><img src="../images/loader.svg" alt="" class="m-auto d-block"> <span></span></div>
+				<div class="txt-loading">
+					<span data-text-preloader="M" class="letters-loading">
+						M
+					</span>
+					<span data-text-preloader="I" class="letters-loading">
+						I
+					</span>
+					<span data-text-preloader="R" class="letters-loading">
+						R
+					</span>
+					<span data-text-preloader="A" class="letters-loading">
+						A
+					</span>
+					<span data-text-preloader="N" class="letters-loading">
+						N
+					</span>
+					<span data-text-preloader="I" class="letters-loading">
+						I
+					</span>
+				</div>
+			</div>
+		</div>
+
+
+        <!--
+		=============================================
+			Mobile Navigation
+		==============================================
+		-->
+        <div class="offcanvas offcanvas-end sidebar-nav" tabindex="-1" id="sideNav">
+            <div class="offcanvas-header p0">
+            	<div class="logo order-lg-0">
+					<a href="../" class="d-flex align-items-center">
+						<img src="../images/logo/logo_01.svg" alt="">
+					</a>
+				</div>
+            	<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="wrapper mt-10 h-100">
+				<div class="d-flex flex-column h-100">
+					<div class="sidebar-nav-item">
+						<ul class="style-none">
+							<li class="nav-item"><a href="../">Home</a></li>
+							<li class="nav-item"><a href="../about/">About</a></li>
+							<li class="nav-item"><a href="../features/">Features</a></li>
+							<li class="nav-item"><a href="../paths/">Paths</a></li>
+							<li class="nav-item"><a href="../journey/">Journey</a></li>
+							<li class="nav-item"><a href="../contact/">Contact</a></li>
+						</ul>
+					</div>
+					<div><a href="../contact/" class="btn-two text-center w-100">Join the Waitlist</a></div>
+					<div class="address-block mt-50">
+						<h4 class="title pb-15">Mirani Well</h4>
+						<p>A wellness platform by <br>Dr. Uzo Nwankpa</p>
+						<p>Get in touch <br><a href="mailto:hello@miraniwell.com">hello@miraniwell.com</a></p>
+					</div>
+					<ul class="style-none d-flex flex-wrap w-100 justify-content-between align-items-center social-icon pt-25 mt-auto">
+						<li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-viber"></i></a></li>
+					</ul>
+				</div>
+            </div>
+        </div>
+
+
+		<!--
+		=============================================
+			Main Navigation
+		==============================================
+		-->
+		<header class="theme-main-menu menu-style-three gap-three menu-overlay sticky-menu">
+			<div class="inner-content container full">
+				<div class="top-header position-relative">
+					<div class="d-flex align-items-center justify-content-between">
+						<div class="logo position-relative z-2 order-lg-0">
+							<a href="../" class="d-flex align-items-center">
+								<img src="../images/logo/logo_01.svg" alt="">
+							</a>
+						</div>
+						<!-- logo -->
+						<div class="right-widget position-relative z-2 ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
+							<ul class="d-flex align-items-center style-none">
+								<li class="d-none d-sm-flex align-items-center">
+                                    <a href="../contact/" class="btn-two">Join the Waitlist</a>
+                                </li>
+								<li class="d-none d-lg-block ms-3">
+									<button class="sidenavbtn style-two tran3s" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideNav" aria-controls="sideNav">
+                                        <span></span>
+                                        <span></span>
+                                    </button>
+								</li>
+							</ul>
+						</div>
+						<nav class="navbar navbar-expand-lg p0 order-lg-2">
+							<button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
+								data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+								aria-label="Toggle navigation">
+								<span></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarNav">
+								<ul class="navbar-nav align-items-lg-center">
+									<li class="d-block d-lg-none"><div class="logo"><a href="../" class="d-block"><img src="../images/logo/logo_01.svg" alt=""></a></div></li>
+									<li class="nav-item">
+										<a class="nav-link" href="../">Home</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../about/">About</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../features/">Features</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../paths/">Paths</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../journey/">Journey</a>
+									</li>
+									<li class="d-sm-none ps-3 pe-3 mt-30">
+										<a href="../contact/" class="btn-two text-center w-100">Contact</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div> <!--/.top-header-->
+			</div> <!-- /.inner-content -->
+		</header>
+		<!-- /.theme-main-menu -->
+
+
+
+		<!--
+		=============================================
+			Page Banner
+		==============================================
+		-->
+		<div class="inner-banner-two mt-150 md-mt-120">
+			<div class="container full">
+				<div class="position-relative">
+					<div class="layer-one position-relative">
+						<div class="layer-two position-relative z-1">
+							<div class="main-bg position-relative z-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/media/mirani-well-journey-banner.jpg); background-size: cover; background-position: center;">
+								<div class="row">
+									<div class="col-lg-9 m-auto">
+										<h2 style="color: #fff;"><span class="position-relative">Your Journey<span class="sticker" style="background: #4EEFBF; color: #000;">Journey</span></span> to Restoration</h2>
+										<p class="fs-32" style="color: #fff;">Track your daily practice, build your streak, and unlock deeper healing</p>
+										<div class="mt-30">
+											<a href="login/" class="btn-two xl">Sign In to Play</a>
+											<a href="signup/" class="btn-four ms-3">Create an Account</a>
+										</div>
+									</div>
+								</div>
+								<img src="../images/shape/shape_32_white.svg" alt="" class="shapes shape_01">
+								<img src="../images/shape/shape_33_white.svg" alt="" class="shapes shape_02">
+							</div>
+							<!-- /.main-bg -->
+						</div>
+						<!-- /.layer-two -->
+					</div>
+					<!-- /.layer-one -->
+				</div>
+			</div>
+		</div>
+		<!-- /.inner-banner-two -->
+
+
+
+
+		<!--
+		=====================================================
+			Progress Stats
+		=====================================================
+		-->
+		<div class="feature-block-two position-relative z-2 pt-180 xl-pt-150 lg-pt-80 pb-200 lg-pb-120">
+			<div class="container lg">
+				<div class="position-relative">
+                    <div class="row">
+                        <div class="col-lg-8 m-auto" data-sal="slide-up" data-sal-duration="900">
+                            <div class="title-two text-center mb-50 lg-mb-20">
+                                <h2><span class="position-relative">Your Progress<span class="sticker" style="background: #E96DFF;">Stats</span></span></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper m0 style-two">
+                        <div class="row">
+							<div class="col-lg-3 col-md-6" data-sal="slide-up" data-sal-duration="900">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #FFE5BB;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/009-sun.png" alt="Streak"></div>
+									<h3>7</h3>
+									<p>Daily Streak</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="200">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #CFFFD7;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/003-meditation.png" alt="Rituals"></div>
+									<h3>23</h3>
+									<p>Rituals Completed</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="400">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #D3E4FF;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/020-love-yourself.png" alt="Affirmations"></div>
+									<h3>12</h3>
+									<p>Affirmations Unlocked</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-3 col-md-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="600">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #FFBCF1;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/010-flower.png" alt="Progress"></div>
+									<h3>22%</h3>
+									<p>Progress Level</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<!-- /.feature-block-two -->
+
+
+
+		<!--
+		=====================================================
+			Elemental Paths
+		=====================================================
+		-->
+		<div class="feature-block-two position-relative z-2 pt-30 pb-200 lg-pb-120">
+			<div class="container lg">
+				<div class="position-relative">
+                    <div class="row">
+                        <div class="col-lg-8 m-auto" data-sal="slide-up" data-sal-duration="900">
+                            <div class="title-two text-center mb-50 lg-mb-20">
+                                <h2><span class="position-relative">Elemental Skill<span class="sticker" style="background: #4EEFBF;">Trees</span></span></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper m0 style-two">
+                        <div class="row">
+							<div class="col-lg-6" data-sal="slide-up" data-sal-duration="900">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #FFE5BB;">
+									<img src="../images/media/mirani-well-path-earth.jpg" alt="Earth path — grounding and stability" class="border-30 w-100 mb-20">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/008-breathing.png" alt="Earth"></div>
+									<h3>Earth</h3>
+									<span>Grounding, stability, purpose</span>
+									<ul class="style-none mt-20">
+										<li class="mb-10"><span class="fw-500">Grounding Breath</span> (Unlocked)</li>
+										<li class="mb-10"><span class="fw-500">Root Visualization</span> (Unlocked)</li>
+										<li class="mb-10"><span class="fw-500">Soil Ritual</span> (In Progress)</li>
+										<li><span class="opacity-75">Forest Sanctuary</span> (Locked)</li>
+									</ul>
+									<div class="mt-auto mt-20"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="200">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #D3E4FF;">
+									<img src="../images/media/mirani-well-path-water.jpg" alt="Water path — release and emotional flow" class="border-30 w-100 mb-20">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/001-water.png" alt="Water"></div>
+									<h3>Water</h3>
+									<span>Flow, release, emotional processing</span>
+									<ul class="style-none mt-20">
+										<li class="mb-10"><span class="fw-500">Wave Release</span> (Unlocked)</li>
+										<li class="mb-10"><span class="fw-500">River Meditation</span> (In Progress)</li>
+										<li class="mb-10"><span class="opacity-75">Ocean Immersion</span> (Locked)</li>
+										<li><span class="opacity-75">Tidal Affirmation</span> (Locked)</li>
+									</ul>
+									<div class="mt-auto mt-20"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="400">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #FFBCF1;">
+									<img src="../images/media/mirani-well-path-fire.jpg" alt="Fire path — passion and inner spark" class="border-30 w-100 mb-20">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/019-heart.png" alt="Fire"></div>
+									<h3>Fire</h3>
+									<span>Passion, renewal, inner spark</span>
+									<ul class="style-none mt-20">
+										<li class="mb-10"><span class="opacity-75">Spark Activation</span> (Locked)</li>
+										<li class="mb-10"><span class="opacity-75">Ember Journaling</span> (Locked)</li>
+										<li class="mb-10"><span class="opacity-75">Flame Ceremony</span> (Locked)</li>
+										<li><span class="opacity-75">Renewal Ritual</span> (Locked)</li>
+									</ul>
+									<div class="mt-auto mt-20"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="600">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #CFFFD7;">
+									<img src="../images/media/mirani-well-path-air.jpg" alt="Air path — clarity and lightness" class="border-30 w-100 mb-20">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/013-flowers.png" alt="Air"></div>
+									<h3>Air</h3>
+									<span>Lightness, clarity, rising above</span>
+									<ul class="style-none mt-20">
+										<li class="mb-10"><span class="fw-500">Breath of Sky</span> (Unlocked)</li>
+										<li class="mb-10"><span class="fw-500">Cloud Gazing</span> (Unlocked)</li>
+										<li class="mb-10"><span class="fw-500">Wind Affirmation</span> (In Progress)</li>
+										<li><span class="opacity-75">Ascension Journey</span> (Locked)</li>
+									</ul>
+									<div class="mt-auto mt-20"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<!-- /.feature-block-two -->
+
+
+
+		<!--
+		=====================================================
+			Unlock Deeper Practices
+		=====================================================
+		-->
+		<div class="feature-block-two position-relative z-2 pt-30 pb-200 lg-pb-120">
+			<div class="container lg">
+				<div class="position-relative">
+                    <div class="row">
+                        <div class="col-lg-8 m-auto" data-sal="slide-up" data-sal-duration="900">
+                            <div class="title-two text-center mb-50 lg-mb-20">
+                                <h2><span class="position-relative">Unlock Deeper<span class="sticker" style="background: #E96DFF;">Practices</span></span></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper m0 style-two">
+                        <div class="row">
+							<div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="900">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #FFE5BB;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/007-calm.png" alt="Practice consistently"></div>
+									<h3>Practice Consistently</h3>
+									<p>Complete your daily rituals. Each practice brings you closer to the next level of restoration.</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="200">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #D3E4FF;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/018-tea.png" alt="Build your streak"></div>
+									<h3>Build Your Streak</h3>
+									<p>Each day you return deepens your commitment. Consistency unlocks affirmations and practices.</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="400">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #FFBCF1;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/012-reading.png" alt="Complete milestones"></div>
+									<h3>Complete Milestones</h3>
+									<p>When you reach a ritual milestone, you unlock immersive experiences.</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="600">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #CFFFD7;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/002-self-care.png" alt="Affirmation rewards"></div>
+									<h3>Affirmation Rewards</h3>
+									<p>Unlock elemental affirmations as you progress. Collect words of restoration that match your element.</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="800">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #FFE5BB;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/005-facial-mask.png" alt="Reach mastery"></div>
+									<h3>Reach Mastery</h3>
+									<p>When you master an element, you gain access to advanced ceremonies and experiences.</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="900" data-sal-delay="1000">
+								<div class="card-block d-flex flex-column position-relative z-1 mt-40" style="background: #D3E4FF;">
+									<div class="icon d-flex align-items-center"><img src="../images/assets/mirani-well-illustrations/self-care-illustrations/014-self-care.png" alt="Keep growing"></div>
+									<h3>Keep Growing</h3>
+									<p>There's no ceiling. Your healing is a journey. Continue practicing and discovering new dimensions of restoration.</p>
+									<div class="mt-auto"><a href="#" class="stretched-link d-block"><img src="../images/icon/icon_09.svg" alt=""></a></div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<!-- /.feature-block-two -->
+
+
+
+		<!--
+		=====================================================
+			Call To Action
+		=====================================================
+		-->
+		<div class="fancy-banner-two position-relative z-1 pb-200 xl-pb-150 lg-pb-100">
+			<div class="container lg">
+				<div class="row">
+					<div class="col-lg-11 m-auto">
+						<h2 data-sal="slide-up" data-sal-duration="900">Begin your <span>elemental journey</span> today.</h2>
+						<div data-sal="slide-up" data-sal-duration="900" data-sal-delay="500"><a href="login/" class="btn-two xl">Sign In to Play</a></div>
+						<div data-sal="slide-up" data-sal-duration="900" data-sal-delay="700" class="mt-20"><a href="signup/" class="btn-four">Create an Account</a></div>
+					</div>
+				</div>
+			</div>
+			<img src="../images/shape/shape_15.svg" alt="" class="shapes shape_01">
+		</div>
+		<!-- /.fancy-banner-two -->
+
+
+
+		<!--
+		=====================================================
+			Footer
+		=====================================================
+		-->
+		<footer class="footer-three position-relative">
+			<div class="container lg">
+				<div class="layer-one position-relative">
+					<div class="layer-two position-relative z-1">
+						<div class="main-bg position-relative z-2">
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="logo"><a href="../"><img src="../images/logo/logo_01.svg" alt=""></a></div>
+									<h3>Your wellness journey, one step at a time.</h3>
+									<ul class="style-none d-flex footer-nav">
+										<li><a href="#" class="line-bg">Faq's</a></li>
+										<li><a href="#" class="line-bg">Privacy Policy</a></li>
+										<li><a href="#" class="line-bg">Terms</a></li>
+									</ul>
+								</div>
+								<div class="col-xl-6">
+									<div class="ps-xxl-4">
+										<ul class="style-none d-flex footer-nav xl">
+											<li><a href="../about/" class="line-bg">About </a></li>
+											<li><a href="../features/" class="line-bg">Features</a></li>
+											<li><a href="../journey/" class="line-bg">Journey</a></li>
+											<li><a href="../blog/" class="line-bg">Blog</a></li>
+											<li><a href="../contact/" class="line-bg">Contact</a></li>
+										</ul>
+										<div class="d-sm-flex justify-content-between mt-70 lg-mt-40">
+											<p class="address">Founded by <br>Dr. Uzo Nwankpa</p>
+											<ul class="style-none social-icon d-flex">
+												<li><a href="#">Tw</a></li>
+												<li><a href="#">Fb</a></li>
+												<li><a href="#">Ln</a></li>
+											</ul>
+										</div>
+
+										<div class="newsletter-form mt-60 lg-mt-30">
+											<p>Join our newsletter</p>
+											<form action="#" class="position-relative">
+												<input type="email" placeholder="your@email.com">
+												<button class="rounded-circle tran3s d-flex align-items-center justify-content-center"><img src="../images/icon/icon_16.svg" alt=""></button>
+											</form>
+										</div>
+										<!-- /.newsletter-form -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.main-bg -->
+					</div>
+					<!-- /.layer-two -->
+				</div>
+				<!-- /.layer-one -->
+
+				<p class="copyright"><span class="fw-500">@2026 Mirani Well.</span> All Right Reserved</p>
+			</div>
+			<img src="../images/shape/shape_16.svg" alt="Shape" class="shapes shape_01 w-100">
+		</footer>
+		<!-- /.footer-three -->
+
+
+		<button class="scroll-top">
+			<i class="bi bi-arrow-up-short"></i>
+		</button>
+
+
+
+
+		<!-- Optional JavaScript _____________________________  -->
+
+		<!-- jQuery first, then Bootstrap JS -->
+		<!-- jQuery -->
+		<script src="../vendor/jquery.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- SAL js -->
+		<script src="../vendor/sal/sal.js"></script>
+		<!-- Slick Slider -->
+		<script src="../vendor/slick/slick.min.js"></script>
+        <script src="../vendor/slick-animation.min.js"></script>
+		<!-- Fancybox -->
+		<script src="../vendor/fancybox/fancybox.umd.js"></script>
+		<!-- js Counter -->
+		<script src="../vendor/jquery.counterup.min.js"></script>
+		<script src="../vendor/jquery.waypoints.min.js"></script>
+		<!-- validator js -->
+		<script src="../vendor/validator.js"></script>
+
+		<!-- Theme js -->
+		<script src="../js/theme.js"></script>
+
+	</main> <!-- /.main-page-wrapper -->
+</body>
+
+</html>

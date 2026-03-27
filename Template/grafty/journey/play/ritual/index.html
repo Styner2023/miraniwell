@@ -1,0 +1,192 @@
+<!-- Developed by StynerDev (Kishana Stiner) — miraniwell.com -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Mirani Well ritual, elemental healing, guided practice, mindfulness, wellness">
+	<meta name="description" content="Complete your Mirani Well healing ritual. A guided elemental experience for emotional balance and restoration.">
+	<meta property="og:site_name" content="Mirani Well">
+	<meta property="og:url" content="https://miraniwell.com/journey/play/ritual/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Ritual — Mirani Well">
+	<meta name='og:image' content='../../../images/assets/ogg.png'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#C4CCD5">
+	<meta name="msapplication-navbutton-color" content="#C4CCD5">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#C4CCD5">
+	<title>Ritual — Mirani Well</title>
+	<link rel="icon" type="image/png" sizes="56x56" href="../../../images/fav-icon/icon.png">
+	<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../../../css/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../../../css/responsive.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../../../css/mirani-well-game.css" media="all">
+</head>
+
+<body>
+	<main class="main-page-wrapper">
+
+		<!--
+		=====================================================
+			Sidebar — Hearts + Progress (vertical, left side)
+		=====================================================
+		-->
+		<div class="ritual-sidebar" id="ritual-sidebar">
+			<a href="../" id="ritual-exit" class="ritual-sidebar-exit">Exit</a>
+			<div class="ritual-sidebar-progress" id="ritual-progress-bar">
+				<div class="progress-fill"></div>
+			</div>
+			<div class="ritual-sidebar-hearts" id="ritual-hearts">
+				<span class="heart-icon">&#10084;</span>
+				<span class="heart-icon">&#10084;</span>
+				<span class="heart-icon">&#10084;</span>
+				<span class="heart-icon">&#10084;</span>
+				<span class="heart-icon">&#10084;</span>
+			</div>
+			<span class="ritual-sidebar-xp" id="ritual-xp-display">+10 XP</span>
+		</div>
+
+		<!--
+		=====================================================
+			Main Content — Map + Step (fills viewport)
+		=====================================================
+		-->
+		<div class="ritual-main">
+
+			<!-- Game Board Map -->
+			<div class="ritual-map-area">
+				<div class="snake-path-container" id="path-map">
+					<!-- SVG illustration loaded inline by JS -->
+				</div>
+			</div>
+
+			<!-- Step Content Wrapper (box + external controls) -->
+			<div class="ritual-step-wrapper">
+
+				<!-- Feedback pill — right corner on top of box -->
+				<div id="quiz-feedback" class="ritual-feedback-pill d-none">
+					<div id="quiz-feedback-card" class="ritual-feedback-inner">
+						<p class="fs-20 fw-500 mb-0" id="quiz-feedback-text"></p>
+					</div>
+				</div>
+
+				<!-- Buttons — left corner below box -->
+				<div class="ritual-controls">
+					<button class="btn-two" id="guided-done-btn">I'm Ready</button>
+					<button class="btn-two d-none" id="quiz-check-btn">Check Answer</button>
+					<button class="btn-two d-none" id="quiz-continue-btn">Continue</button>
+					<button class="btn-two d-none" id="complete-return-btn">Return to Path</button>
+					<button class="btn-four d-none me-3" id="failed-return-btn">Return to Path</button>
+					<button class="btn-two d-none" id="failed-retry-btn">Try Again</button>
+				</div>
+
+				<!-- The box — only content, no buttons, no feedback -->
+				<div class="inner-banner-two ritual-step-area">
+				<div class="container">
+					<div class="position-relative">
+						<div class="layer-one position-relative">
+							<div class="layer-two position-relative z-1">
+								<div class="main-bg position-relative z-2">
+
+									<!-- GUIDED STEP -->
+									<div id="guided-screen" class="ritual-screen">
+										<div class="row">
+											<div class="col-lg-9 m-auto text-center">
+												<img src="" alt="" id="ritual-illustration" class="ritual-scene-img mb-20">
+												<h2 id="ritual-title"><span class="position-relative">Loading<span class="sticker" style="background: #4EEFBF;">...</span></span></h2>
+												<p class="fs-24 mb-30" id="ritual-instruction"></p>
+												<div id="ritual-interactive" class="mb-30"></div>
+											</div>
+										</div>
+									</div>
+
+									<!-- QUIZ STEP -->
+									<div id="quiz-screen" class="d-none ritual-screen">
+										<div class="row">
+											<div class="col-lg-9 m-auto text-center">
+												<h2 id="quiz-title"><span class="position-relative">Quick Check<span class="sticker" style="background: #4EEFBF;">...</span></span></h2>
+												<p class="fs-24 mb-30" id="quiz-question"></p>
+												<div id="quiz-options" class="quiz-options-grid"></div>
+											</div>
+										</div>
+									</div>
+
+									<!-- COMPLETION SCREEN -->
+									<div id="complete-screen" class="d-none ritual-screen">
+										<div class="row">
+											<div class="col-lg-9 m-auto text-center">
+												<img src="" alt="" id="complete-medal-img" class="complete-medal d-none mb-20">
+												<h2><span class="position-relative">Ritual Complete<span class="sticker" style="background: #4EEFBF;"></span></span></h2>
+												<div class="card-wrapper m0 style-two mt-30 mb-30">
+													<div class="row">
+														<div class="col-6 col-md-3">
+															<div class="card-block d-flex flex-column position-relative z-1" style="background: #CFFFD7;">
+																<h3 id="complete-xp-earned">+0</h3>
+																<p>XP</p>
+															</div>
+														</div>
+														<div class="col-6 col-md-3">
+															<div class="card-block d-flex flex-column position-relative z-1" style="background: #FFE5BB;">
+																<h3 id="result-correct">0</h3>
+																<p>Correct</p>
+															</div>
+														</div>
+														<div class="col-6 col-md-3">
+															<div class="card-block d-flex flex-column position-relative z-1" style="background: #FFBCF1;">
+																<h3 id="result-missed">0</h3>
+																<p>Missed</p>
+															</div>
+														</div>
+														<div class="col-6 col-md-3">
+															<div class="card-block d-flex flex-column position-relative z-1" style="background: #D3E4FF;">
+																<h3 id="result-hearts">5</h3>
+																<p>Hearts</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<p class="fs-24 mb-30" id="complete-affirmation"></p>
+											</div>
+										</div>
+									</div>
+
+									<!-- FAILED SCREEN -->
+									<div id="failed-screen" class="d-none ritual-screen">
+										<div class="row">
+											<div class="col-lg-9 m-auto text-center">
+												<h2><span class="position-relative">Out of Hearts<span class="sticker" style="background: #E96DFF;"></span></span></h2>
+												<p class="fs-24 mb-20">Take a breath. You can try again.</p>
+												<p class="fs-20 mb-30">Healing is not a straight line. Every attempt teaches you something.</p>
+											</div>
+										</div>
+									</div>
+
+									<img src="../../../images/shape/shape_32.svg" alt="" class="shapes shape_01">
+									<img src="../../../images/shape/shape_33.svg" alt="" class="shapes shape_02">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			</div><!-- /.ritual-step-wrapper -->
+
+		</div><!-- /.ritual-main -->
+
+		<!-- jQuery -->
+		<script src="../../../vendor/jquery.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- SAL js -->
+		<script src="../../../vendor/sal/sal.js"></script>
+		<!-- Theme js -->
+		<script src="../../../js/theme.js"></script>
+		<!-- Game JS -->
+		<script src="../../../js/mirani-well-game.js?v=3"></script>
+
+	</main>
+</body>
+
+</html>
