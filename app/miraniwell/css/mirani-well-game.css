@@ -207,6 +207,12 @@
 .game-node.node-completed {
   opacity: 0.85;
 }
+.game-node.node-completed .node-status {
+  text-decoration: line-through;
+}
+.game-node.node-available .node-status {
+  text-decoration: underline;
+}
 
 /* Medal on completed play-page cards */
 .card-medal {
