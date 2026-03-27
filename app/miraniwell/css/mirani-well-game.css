@@ -138,6 +138,54 @@
   }
   .ritual-main {
     margin-left: 56px;
+    height: auto;
+    overflow: visible;
+  }
+  .ritual-sidebar {
+    display: none;
+  }
+  .ritual-main {
+    margin-left: 0;
+    height: auto;
+    overflow: visible;
+    display: block;
+    padding: 5px 10px;
+  }
+  .ritual-map-area {
+    flex: none;
+    overflow: visible;
+    height: auto;
+    max-height: none;
+    padding: 0;
+    margin-bottom: 5px;
+  }
+  .ritual-map-area .snake-path-container {
+    height: auto;
+  }
+  .ritual-map-area .snake-path-container img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+  .ritual-step-wrapper {
+    flex: none;
+    height: auto;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .ritual-step-area .main-bg {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    padding: 20px 15px 25px !important;
+  }
+  .ritual-controls {
+    left: 15px;
+  }
+  .ritual-feedback-pill {
+    right: 15px;
   }
 }
 
@@ -420,6 +468,32 @@
   max-height: 360px !important;
   padding: 20px 10px 15px !important;
   overflow: visible !important;
+}
+@media (max-width: 767px) {
+  .ritual-step-area .main-bg {
+    height: auto !important;
+    min-height: 500px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .ritual-step-area .main-bg .ritual-screen {
+    width: 100%;
+  }
+  .ritual-step-area .main-bg .ritual-screen h2 {
+    font-size: 28px;
+  }
+  .ritual-step-area .main-bg .ritual-screen .fs-24 {
+    font-size: 18px;
+  }
+  .quiz-options-grid {
+    gap: 8px;
+  }
+  .quiz-option {
+    padding: 12px 10px;
+  }
 }
 
 .ritual-step-area .layer-one,

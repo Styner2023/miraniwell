@@ -61,8 +61,8 @@
     'images/gaming-paths-main/path-decore-images/022-satellite.png',
     'images/gaming-paths-main/path-decore-images/023-globe.png',
     'images/gaming-paths-main/path-decore-images/028-highway.png',
-    'images/gaming-paths-main/path-decore-images/029-highway sign.png',
-    'images/gaming-paths-main/path-decore-images/030-traffic lights.png'
+    'images/gaming-paths-main/path-decore-images/029-highway-sign.png',
+    'images/gaming-paths-main/path-decore-images/030-traffic-lights.png'
   ];
 
   // Helper to resolve asset path from any page depth
@@ -358,6 +358,33 @@
     return state && state.user;
   }
 
+  // ── Supabase auth helpers ──
+  function showAuthError(form, message) {
+    var existing = form.querySelector('.auth-error');
+    if (existing) existing.remove();
+    var div = document.createElement('div');
+    div.className = 'auth-error';
+    div.style.cssText = 'color:#ff4444;background:#fff0f0;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:14px;text-align:center;';
+    div.textContent = message;
+    form.insertBefore(div, form.firstChild);
+  }
+
+  function clearAuthError(form) {
+    var existing = form.querySelector('.auth-error');
+    if (existing) existing.remove();
+  }
+
+  function setButtonLoading(btn, loading) {
+    if (loading) {
+      btn.dataset.originalText = btn.textContent;
+      btn.textContent = 'Please wait...';
+      btn.disabled = true;
+    } else {
+      btn.textContent = btn.dataset.originalText || btn.textContent;
+      btn.disabled = false;
+    }
+  }
+
 
   // ── Streak logic ──
   function checkStreak(state) {
@@ -401,44 +428,23 @@
   function initLoginPage() {
     var loginForm = document.getElementById('login-form');
     var signupForm = document.getElementById('signup-form');
-    var toggleText = document.getElementById('toggle-text');
 
     if (!loginForm || !signupForm) return;
 
-    // Never auto-redirect from login page — user chose to come here
-    // They can navigate to /play/ themselves
-
-    var showingLogin = true;
-
-    function showLogin() {
-      showingLogin = true;
-      loginForm.classList.remove('d-none');
-      signupForm.classList.add('d-none');
-      toggleText.innerHTML = 'New here? <a href="#" class="line-bg toggle-link">Create an account</a>';
-    }
-
-    function showSignup() {
-      showingLogin = false;
-      loginForm.classList.add('d-none');
-      signupForm.classList.remove('d-none');
-      toggleText.innerHTML = 'Already have an account? <a href="#" class="line-bg toggle-link">Sign in</a>';
-    }
-
-    // Use event delegation so we don't have to rebind
-    toggleText.addEventListener('click', function (e) {
-      if (e.target.classList.contains('toggle-link')) {
+    // Toggle between login and signup forms
+    var showSignupBtn = document.getElementById('show-signup-btn');
+    if (showSignupBtn) {
+      showSignupBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        if (showingLogin) {
-          showSignup();
-        } else {
-          showLogin();
-        }
-      }
-    });
+        loginForm.classList.add('d-none');
+        signupForm.classList.remove('d-none');
+      });
+    }
 
     // If URL has #signup, show signup form directly
     if (window.location.hash === '#signup') {
-      showSignup();
+      loginForm.classList.add('d-none');
+      signupForm.classList.remove('d-none');
     }
 
     loginForm.addEventListener('submit', function (e) {
@@ -447,15 +453,29 @@
       var password = loginForm.querySelector('input[name="password"]').value;
       if (!email || !password) return;
 
-      var state = getState();
-      if (state && state.user && state.user.email === email) {
-        window.location.href = '../play/';
-      } else {
-        var newState = JSON.parse(JSON.stringify(DEFAULT_STATE));
-        newState.user = { name: email.split('@')[0], email: email, element: 'earth' };
-        saveState(newState);
-        window.location.href = '../play/';
-      }
+      clearAuthError(loginForm);
+      var submitBtn = loginForm.querySelector('button[type="submit"]');
+      setButtonLoading(submitBtn, true);
+
+      var sb = getSupabase();
+      sb.auth.signInWithPassword({ email: email, password: password })
+        .then(function (result) {
+          if (result.error) {
+            showAuthError(loginForm, result.error.message);
+            setButtonLoading(submitBtn, false);
+            return;
+          }
+          // Load or create game state
+          var state = getState();
+          if (!state || !state.user || state.user.email !== email) {
+            var newState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+            var userName = (result.data.user.user_metadata && result.data.user.user_metadata.name) || email.split('@')[0];
+            var userElement = (result.data.user.user_metadata && result.data.user.user_metadata.element) || 'earth';
+            newState.user = { name: userName, email: email, element: userElement };
+            saveState(newState);
+          }
+          window.location.href = '../play/';
+        });
     });
 
     signupForm.addEventListener('submit', function (e) {
@@ -466,10 +486,26 @@
       var element = signupForm.querySelector('select[name="element"]').value;
       if (!name || !email || !password) return;
 
-      var newState = JSON.parse(JSON.stringify(DEFAULT_STATE));
-      newState.user = { name: name, email: email, element: element };
-      saveState(newState);
-      window.location.href = '../play/';
+      clearAuthError(signupForm);
+      var submitBtn = signupForm.querySelector('button[type="submit"]');
+      setButtonLoading(submitBtn, true);
+
+      var sb = getSupabase();
+      sb.auth.signUp({
+        email: email,
+        password: password,
+        options: { data: { name: name, element: element } }
+      }).then(function (result) {
+        if (result.error) {
+          showAuthError(signupForm, result.error.message);
+          setButtonLoading(submitBtn, false);
+          return;
+        }
+        var newState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        newState.user = { name: name, email: email, element: element };
+        saveState(newState);
+        window.location.href = '../play/';
+      });
     });
   }
 
@@ -494,8 +530,11 @@
     if (logoutBtn) {
       logoutBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        localStorage.removeItem('miraniwell_game');
-        window.location.href = '../login/';
+        var sb = getSupabase();
+        sb.auth.signOut().then(function () {
+          localStorage.removeItem('miraniwell_game');
+          window.location.href = '../login/';
+        });
       });
     }
 
@@ -815,7 +854,10 @@
         pathMap.style.position = 'relative';
 
         var board = document.createElement('img');
-        board.src = assetPath('images/gaming-paths-main/svg-paths/Green-Yellow-and-Brown-Illustrative-Goal-Tracker-Map-Whiteboard .svg', 3);
+        var isMobile = window.innerWidth < 768;
+        board.src = isMobile
+          ? assetPath('images/mobile-map.svg', 3)
+          : assetPath('images/gaming-paths-main/svg-paths/Green-Yellow-and-Brown-Illustrative-Goal-Tracker-Map-Whiteboard-.svg', 3);
         board.alt = 'Your healing journey map';
         board.style.cssText = 'width:100%;height:auto;display:block;border-radius:18px;pointer-events:none;';
         pathMap.appendChild(board);
@@ -838,12 +880,17 @@
         _trailPath = trail;
 
         board.onload = function() {
-          _mapReady = true;
-          placeNodes();
+          // Wait a frame so browser has computed layout dimensions
+          requestAnimationFrame(function() {
+            _mapReady = true;
+            placeNodes();
+          });
         };
-        if (board.complete) {
+        if (board.complete && board.offsetHeight > 0) {
           _mapReady = true;
-          placeNodes();
+          requestAnimationFrame(function() {
+            placeNodes();
+          });
         }
         return;
       }
@@ -1252,7 +1299,6 @@
     updateHearts();
     renderCurrentStep();
 
-
   }
 
 
@@ -1272,10 +1318,26 @@
       var element = signupForm.querySelector('select[name="element"]').value;
       if (!name || !email || !password) return;
 
-      var newState = JSON.parse(JSON.stringify(DEFAULT_STATE));
-      newState.user = { name: name, email: email, element: element };
-      saveState(newState);
-      window.location.href = '../play/';
+      clearAuthError(signupForm);
+      var submitBtn = signupForm.querySelector('button[type="submit"]');
+      setButtonLoading(submitBtn, true);
+
+      var sb = getSupabase();
+      sb.auth.signUp({
+        email: email,
+        password: password,
+        options: { data: { name: name, element: element } }
+      }).then(function (result) {
+        if (result.error) {
+          showAuthError(signupForm, result.error.message);
+          setButtonLoading(submitBtn, false);
+          return;
+        }
+        var newState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        newState.user = { name: name, email: email, element: element };
+        saveState(newState);
+        window.location.href = '../play/';
+      });
     });
   }
 
